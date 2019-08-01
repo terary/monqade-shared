@@ -28,6 +28,7 @@ https://github.com/terary/monqade-shared
 ### Contributors ###
 T. Chambers
 
+[![Coverage Status](https://coveralls.io/repos/github/terary/monqade-shared/badge.svg?branch=master)](https://coveralls.io/github/terary/monqade-shared?branch=master)
 
 Preferred Markdown Editor
 https://pandao.github.io/editor.md/en.html
