@@ -18,7 +18,10 @@ src-internal
 #I have heard complaints about test as part of npm pckage
 #but definately want as part of git
 test 
-
+.git
+.git-tmc
+.git-hub
+todo.txt
 #code/resources no longer in use, queued to be deleted
 *.hidden
 

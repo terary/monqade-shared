@@ -18,16 +18,11 @@
 
 
 ## Git Repo ##
-https://github.com/terary/monqade-schema
+https://github.com/terary/monqade-shared
 
 ## Installation ##
 
-```npm install shared```
-
-
-
-## Examples ##
-See the [`examples/`](examples) directory for examples of the key features. 
+```npm install monqade-shared```
 
 
 ### Contributors ###
