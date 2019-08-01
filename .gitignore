@@ -14,8 +14,8 @@ pids
 #Directory developer uses for building stuff
 development-working-dir
 src-internal
-.git-tmc
-.git-hub
+git-tmc
+git-hub
 todo.txt
 
 #code/resources no longer in use, queued to be deleted

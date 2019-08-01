@@ -23,11 +23,11 @@ it(`.arrayFrom_A_minus_B([1,2,3,4,5],[4,5,6,7]) should deep equal [1,2,3]`,funct
     // Math A-B --> elements in A and not in B
     expect(LAMBDAS.arrayFrom_A_minus_B([1,2,3,4,5],[4,5,6,7]),'should equal [4,5]'  ).to.deep.equal([1,2,3])
 });
-it('.isValidMongoID check if 24 characters and is hex',function (){ 
-    expect(LAMBDAS.isValidMongoID('5c294777b2caa15b6f9f2f3b'),'5c294777b2caa15b6f9f2f3b 24 characters and is hex').to.be.true;    
-    expect(LAMBDAS.isValidMongoID('5c294777b2caa15b6f9f2f3b1'),'5c294777b2caa15b6f9f2f3b1 25 characters').to.be.false;    
-    expect(LAMBDAS.isValidMongoID('5c294777b2caa15b6f9f2f3x'),'5c294777b2caa15b6f9f2f3x  x not valid hex').to.be.false;    
-})
+// it('.isValidMongoID check if 24 characters and is hex',function (){ 
+//     expect(LAMBDAS.isValidMongoID('5c294777b2caa15b6f9f2f3b'),'5c294777b2caa15b6f9f2f3b 24 characters and is hex').to.be.true;    
+//     expect(LAMBDAS.isValidMongoID('5c294777b2caa15b6f9f2f3b1'),'5c294777b2caa15b6f9f2f3b1 25 characters').to.be.false;    
+//     expect(LAMBDAS.isValidMongoID('5c294777b2caa15b6f9f2f3x'),'5c294777b2caa15b6f9f2f3x  x not valid hex').to.be.false;    
+// })
 it(`.isObject -> false for: [], '', 1, Date(), undef, null.  true for {}  `,function (){ 
     const number = 3, array = [], object = {}, string = "my string";
     const date = Date(), undef = undefined, NULL = null;
