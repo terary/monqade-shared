@@ -19,8 +19,8 @@ src-internal
 #but definately want as part of git
 test 
 .git
-.git-tmc
-.git-hub
+git-tmc
+git-hub
 todo.txt
 #code/resources no longer in use, queued to be deleted
 *.hidden
