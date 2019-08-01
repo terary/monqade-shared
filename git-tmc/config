@@ -1,8 +1,0 @@
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-[remote "origin"]
-	url = ssh://gituser@vps.ubiquityservers.com:33233/home/gituser/repos/moncade/monqade-shared.git
-	fetch = +refs/heads/*:refs/remotes/origin/*
