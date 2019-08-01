@@ -28,6 +28,7 @@ describe('MonqadeError', ()=>{
                 const mqErrorCopy =  MonqadeError.fromError(mqError);
                 expect( mqErrorCopy,'should be an instance').to.be.instanceOf( MonqadeError );
 
+                expect( mqErrorCopy.originalError,'should be the original error').to.deep.equal( {original:'error'} );
                 expect( mqErrorCopy.code,' contain the same documents').to.be.equal( 'theCode' );
                 expect( mqErrorCopy.code,' test premise malfunction ').to.not.be.equal( 'other' );
             });
@@ -84,6 +85,13 @@ describe('MonqadeError', ()=>{
                 const isOne = MonqadeError.isThisOne(mqError);
                 expect(isOne).to.be.false;
             });
+            it('Should test for isMonqadeError property',( )=>{
+                // return !! obj.isMonqadeError;
+                const isOne = MonqadeError.isThisOne();
+                expect(isOne).to.be.false;
+            });
+
+            
 
         });
     })

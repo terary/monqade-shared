@@ -22,6 +22,8 @@ test
 git-tmc
 git-hub
 todo.txt
+.coveralls.yml
+
 #code/resources no longer in use, queued to be deleted
 *.hidden
 

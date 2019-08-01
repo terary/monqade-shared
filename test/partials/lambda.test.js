@@ -62,8 +62,31 @@ it('.subDocumentOfPaths',function (){
 })
 
 it.skip('.rejectedPromise  - deprecated.  Shouldn\'t be in use but in case it is left in the module',function (){ })
-it.skip('.isLiveMongoose - requires connection. this test is best done elsewhere.')
-it.skip('.isPojo - deprecated.  Shouldn\'t be in use but in case it is left in the module ')
+it('.isLiveMongoose - should return false for undefined mongoose ref', () => {
+    `Test are to satisfy coverage reports`;
+    expect(LAMBDAS.isLiveMongoose(undefined)).to.be.false;
+ 
+});
+it('.isLiveMongoose - should return true for readyState = 2', () => {
+    `Test are to satisfy coverage reports`;
+    const connRef = {connection:{readyState:2}}    
+    expect(LAMBDAS.isLiveMongoose(connRef)).to.be.true;
+ 
+});
+it('.isLiveMongoose - should return true for readyState = 2', () => {
+    `Test are to satisfy coverage reports`;
+    const connRef = {connection:{readyState:1}}    
+    expect(LAMBDAS.isLiveMongoose(connRef)).to.be.true;
+ 
+});
+it('.isLiveMongoose - should return false for readyState = 4', () => {
+    `Test are to satisfy coverage reports`;
+    const connRef = {connection:{readyState:4}}    
+    expect(LAMBDAS.isLiveMongoose(connRef)).to.be.false;
+ 
+});
+
+
 
 describe('.keysDeep(object)', () => {
     let obj

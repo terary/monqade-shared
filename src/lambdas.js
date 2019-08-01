@@ -1,7 +1,7 @@
 
 const  _ = require('lodash');
 
-const     isHex=(s)=>{
+const isHex=(s)=>{
     const hexRegEx = /([0-9]|[a-f])/gim
 
     return typeof s === 'string' &&
@@ -9,35 +9,34 @@ const     isHex=(s)=>{
 }
 
 
-const isPojo = (obj)=>{
-    if(obj.constructor.name === 'Date'){
-        return true;
-    }else if(obj.constructor.name === 'String'){
-        return true;
-    }else if(obj.constructor.name === 'Number'){
-        return true;
-    }else if(obj.constructor.name === 'Boolean'){
-        return true;
-    }else if(obj.constructor.name === 'Array'){
-        for(val of obj ){
-            if(!isPojo(val)){
-                console.log("not pojo:", val)
-                return false;
-            }
-        }
-        return true;
-    }else if(obj.constructor.name === 'Object'){
-        for([k,val] of Object.entries(obj)){
-            if(!isPojo(val)){
-                console.log("not pojo:", val)
-                return false;
-            }
-        }
-        return true;
-    }
-    console.log("not pojo:", obj)
-    return false;
-};
+// const isPojo = (obj)=>{
+//     if(obj.constructor.name === 'Date'){
+//         return true;
+//     }else if(obj.constructor.name === 'String'){
+//         return true;
+//     }else if(obj.constructor.name === 'Number'){
+//         return true;
+//     }else if(obj.constructor.name === 'Boolean'){
+//         return true;
+//     }else if(obj.constructor.name === 'Array'){
+//         for(val of obj ){
+//             if(!isPojo(val)){
+//                 console.log("not pojo:", val)
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }else if(obj.constructor.name === 'Object'){
+//         for([k,val] of Object.entries(obj)){
+//             if(!isPojo(val)){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+//     return false;
+// };
+
 const _keysDeepRecursive = (obj,keys) => {
     if(Array.isArray(obj)){
         obj.forEach(el=>{
@@ -263,7 +262,7 @@ const lambdas={
     // },
 
     isHex:isHex,
-    isPojo :isPojo,  //deprecated do no use.
+    //isPojo :isPojo,  //deprecated do no use.
 
     
     /**
