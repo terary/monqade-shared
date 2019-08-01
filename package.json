@@ -1,0 +1,33 @@
+{
+  "name": "monqade-shared",
+  "version": "1.0.0",
+  "description": "shared library",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.2.0",
+    "lodash": "^4.17.14"
+  },
+  "devDependencies": {
+    "md5": "^2.2.1",
+    "mocha": "^5.2.0",
+    "mongoose": "^5.4.14",
+    "monqade-dev-schemas": "git+ssh://gituser@vps.ubiquityservers.com:33233/home/gituser/repos/moncade/monqade-dev-schemas.git"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://gituser@vps.ubiquityservers.com:33233/home/gituser/repos/moncade/monqade-shared.git"
+  },
+  "keywords": [
+    "monqade"
+  ],
+  "author": "Terary",
+  "license": "ISC"
+}
