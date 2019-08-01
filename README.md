@@ -1,6 +1,7 @@
 ![](http://static.monqade.com/images/monqade-black-blue-80percent.png)
 # Monqade Shared #
-#####Resources common to the Monqade Project #### 
+
+#####Resources common to the Monqade Project#### 
 
 ### Thingys in this package:
 - MonqadeResponse (Class)

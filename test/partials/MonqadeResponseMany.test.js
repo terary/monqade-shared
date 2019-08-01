@@ -35,6 +35,27 @@ describe('MonqadeResponseMany', ()=>{
 
 
         });
+        describe('MonqadeResponseMany.isThisOne', () => {
+            it(`should return false if called with undefined arguments `, () => {
+                //const mqResponse = new MonqadeResponseMany([{test:'doc'}]);
+                const isOne =  MonqadeResponseMany.isThisOne() ;
+                expect( isOne,'undefined is not a MonqadeResponseMany').to.be.false;
+            })
+            it(`should return false if called with undefined arguments `, () => {
+                const mqResponse = new MonqadeResponseMany([{test:'doc'}]);
+                const isOne =  MonqadeResponseMany.isThisOne(mqResponse) ;
+                expect( isOne,'MonqadeResponseMany is not a MonqadeResponseMany').to.be.true;
+
+            })
+            it(`should return false if called with undefined arguments `, () => {
+                const mqResponse = Object.create({});
+                const isOne =  MonqadeResponseMany.isThisOne(mqResponse) ;
+                expect( isOne,'Other objects are not a MonqadeResponseMany').to.be.false;
+
+            })
+
+
+        });
         describe('.appliedQuery', () => {
             it(`Should be set to 'redacted' as default value `,function(){
                 const mqResponse = new MonqadeResponseMany([]);

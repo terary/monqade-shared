@@ -18,6 +18,12 @@ describe('MonqadeResponse', ()=>{
                 const mqResponse = new MonqadeResponse([]);
                 expect(mqResponse,'should be an instance').to.be.instanceOf( MonqadeResponse );
             });
+            it(`Should expose meta data if available`,function(){
+                // documents, metaObject
+                const metaData = {meta:'data'};
+                const mqResponse = new MonqadeResponse([],metaData);
+                expect(mqResponse.meta,'meta exposed').to.deep.equal( metaData );
+            });
         });
         describe('.fromResponse(serialized | MonqadeResponse)', () =>{ 
             it(`Should create using MonqadeResponse.fromResponse(MonqadeResponse)`,function(){
@@ -60,6 +66,11 @@ describe('MonqadeResponse', ()=>{
             it('Should be able to determine if the instance is a MonqadeResponse object',( )=>{
                 const mqResponse = new Object();
                 const isOne = MonqadeResponse.isThisOne(mqResponse);
+                expect(isOne).to.be.false;
+            });
+            it('Should returned false if called with undefined arguments',( )=>{
+                const mqResponse = new Object();
+                const isOne = MonqadeResponse.isThisOne();
                 expect(isOne).to.be.false;
             });
 
