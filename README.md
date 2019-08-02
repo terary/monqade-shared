@@ -1,14 +1,11 @@
-![](http://static.monqade.com/images/monqade-black-blue-80percent.png)
-#Monqade Shared#
+[![Monqade Logo](http://static.monqade.com/images/monqade-black-blue-80percent.png)](http://monqade.com)
+  Shared classes, definitions, functions common amongst the Monqade Project.
 
- [![NPM Version][npm-image]][npm-url]
-  [![NPM Downloads][downloads-image]][downloads-url]
+  [![NPM Version][npm-image]][npm-url]
   [![Linux Build][travis-image]][travis-url]
   [![Windows Build][appveyor-image]][appveyor-url]
   [![Test Coverage][coveralls-image]][coveralls-url]
-
-
-#####Resources common to the Monqade Project#### 
+  [![MIT License][mitlicense-image]][mitlicense-url]
 
 ###Thingys in this package:###
 - MonqadeResponse (Class)
@@ -21,32 +18,46 @@
 
 
 
-## Documentation ##
+## Documentation
 [Docs Monqade Project](http://docs.monqade.com "documentation Monqade Project")
 
 
-## Git Repo ##
+## Git Repo
 https://github.com/terary/monqade-shared
 
-##Installation##
+## Installation
 
-```npm install monqade-shared```
+```bash
+$ npm install monqade-shared
+```
 
 
-### Contributors ###
+# Tests
+
+  To run the test suite, first install the dependencies, then run `npm test`:
+
+```bash
+$ npm install
+$ npm test
+```
+## Contributors
 T. Chambers
 
 
 
-Preferred Markdown Editor
+## Preferred Markdown Editor
 https://pandao.github.io/editor.md/en.html
 
 
-[![npm version](https://badge.fury.io/js/monqade-shared.svg)](https://badge.fury.io/js/monqade-shared)
-
-[![Build Status](https://travis-ci.org/terary/monqade-shared.svg?branch=master)](https://travis-ci.org/terary/monqade-shared)
-
-[![Coverage Status](https://coveralls.io/repos/github/terary/monqade-shared/badge.svg?branch=master)](https://coveralls.io/github/terary/monqade-shared?branch=master)
-
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-
+[npm-image]: https://badge.fury.io/js/monqade-shared
+[npm-url]: https://www.npmjs.com/package/monqade-shared
+[downloads-image]: https://img.shields.io/npm/dm/express.svg
+[downloads-url]: https://npmjs.org/package/express
+[travis-image]: https://img.shields.io/travis/expressjs/express/master.svg?label=linux
+[travis-url]: https://travis-ci.org/terary/monqade-shared.svg?branch=master
+[appveyor-image]: https://img.shields.io/appveyor/ci/dougwilson/express/master.svg?label=windows
+[appveyor-url]: https://ci.appveyor.com/project/dougwilson/express
+[coveralls-image]: https://img.shields.io/coveralls/expressjs/express/master.svg
+[coveralls-url]: https://coveralls.io/github/terary/monqade-shared?branch=master
+[mitlicense-url]: http://opensource.org/licenses/MIT
+[mitlicense-image]: http://img.shields.io/badge/license-MIT-brightgreen.svg

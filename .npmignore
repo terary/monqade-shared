@@ -21,7 +21,10 @@ test
 .git
 git-tmc
 git-hub
+git-tmc.save
+git-hub.save
 todo.txt
+publish.sh
 .coveralls.yml
 
 #code/resources no longer in use, queued to be deleted

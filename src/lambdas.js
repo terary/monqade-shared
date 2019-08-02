@@ -2,10 +2,12 @@
 const  _ = require('lodash');
 
 const isHex=(s)=>{
-    const hexRegEx = /([0-9]|[a-f])/gim
+    if(s === undefined) {
+        return false;
+    }
 
-    return typeof s === 'string' &&
-        (s.match(hexRegEx) || []).length === s.length
+    const hexRegEx = /([^0-9a-f])/gim; 
+    return typeof s === 'string' &&  s.match(hexRegEx) === null;
 }
 
 
@@ -154,7 +156,7 @@ const lambdas={
      * @returns {JSON} document - that contains only the paths listed in 'pathIDs' and defined in the original JSON
      */
     subDocumentOfPaths: (doc,pathIDs)=>{
-        const theNewDoc = pathIDs.reduce((o, pathID) => ({ ...o, [pathID]: doc[pathID]}), {}); //doc;
+        const theNewDoc = pathIDs.reduce((o, pathID) => ({ ... o, [pathID]: doc[pathID]}), {}); //doc;
         Object.keys(theNewDoc).forEach((pathID)=>{
             if(theNewDoc[pathID]===undefined){ delete theNewDoc[pathID]}
         });

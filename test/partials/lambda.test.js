@@ -4,13 +4,23 @@ expect = chai.expect;
 const thisPackage = require("../../");
 const LAMBDAS = thisPackage.LAMBDAS;
 
-it(`.isHex('bad hex') should return false `,function(){
-    expect(LAMBDAS.isHex('bad hex'),`'bad hex' should return false `).to.be.false;
+describe(`isHex()`, () => {
+
+    it(`Should return false when called with non hex .isHex('bad hex')  `,function(){
+        expect(LAMBDAS.isHex('bad hex'),`'bad hex' should return false `).to.be.false;
+    });
+    it(`Should return false when called without argument  `,function(){
+        expect(LAMBDAS.isHex(),`'bad hex' should return false `).to.be.false;
+    });
+    it(`Should return false when called without argument  `,function(){
+        expect(LAMBDAS.isHex(1),`'bad hex' should return false `).to.be.false;
+    });
+
+    it(`should return true when called with chars: 0-9A-F .isHex('0123456789ABCDEF')  `,function(){
+        expect(LAMBDAS.isHex('0123456789ABCDEF'),`'0123456789ABCDEF' should return true `).to.be.true;
+    })
 });
 
-it(`.isHex('0123456789ABCDEF') should return true `,function(){
-    expect(LAMBDAS.isHex('0123456789ABCDEF'),`'0123456789ABCDEF' should return true `).to.be.true;
-})
 it(`.minMax(3,'-3','2',4,) should deep equal {min:-3,max:4}`,function (){ 
     expect(LAMBDAS.minMax(3,'-3','2',4,),`'.minMax(3,'-3','2',4,)' should deep equal `).to.deep.equal({min:-3,max:4});
 }); 
