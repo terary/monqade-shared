@@ -7,7 +7,7 @@
   [![Test Coverage][coveralls-image]][coveralls-url]
   [![MIT License][mitlicense-image]][mitlicense-url]
 
-###Thingys in this package:###
+### Thingys in this package:
 - MonqadeResponse (Class)
 - MonqadeResponseMany (Class)
 - MonqadeResponseSearch (Class)
@@ -49,8 +49,9 @@ T. Chambers
 https://pandao.github.io/editor.md/en.html
 
 
-[npm-image]: https://badge.fury.io/js/monqade-shared
+[npm-image]: https://badge.fury.io/js/monqade-shared.svg
 [npm-url]: https://www.npmjs.com/package/monqade-shared
+
 [downloads-image]: https://img.shields.io/npm/dm/express.svg
 [downloads-url]: https://npmjs.org/package/express
 [travis-image]: https://img.shields.io/travis/expressjs/express/master.svg?label=linux
