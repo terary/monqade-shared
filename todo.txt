@@ -1,1 +1,7 @@
 
+add defaultPathSettingsTemplate (like systemPath and version)
+
+
+
+did -------------------
+edits to readme
