@@ -29,10 +29,10 @@ describe("Monqade Schema Tests", function () {
 
     const skipTest = true;
     importTest("lambdas", './partials/lambda.test.js',   ! skipTest) ;
-    // importTest("MonqadeResponse", './partials/MonqadeResponse.test.js',   ! skipTest) ;
-    // importTest("MonqadeError", './partials/MonqadeError.test.js',   ! skipTest) ;
+    importTest("MonqadeResponse", './partials/MonqadeResponse.test.js',   ! skipTest) ;
+    importTest("MonqadeError", './partials/MonqadeError.test.js',   ! skipTest) ;
     
-    // importTest("MonqadeResponseMany", './partials/MonqadeResponseMany.test.js',   ! skipTest) ;
+    importTest("MonqadeResponseMany", './partials/MonqadeResponseMany.test.js',   ! skipTest) ;
 
     
     it.skip('Need to rewrite lambdas.js to be jsdoc friendly')
