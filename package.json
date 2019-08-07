@@ -1,6 +1,6 @@
 {
   "name": "monqade-shared",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "shared library",
   "main": "index.js",
   "directories": {

@@ -56,10 +56,10 @@ https://pandao.github.io/editor.md/en.html
 [travis-url]: https://travis-ci.org/terary/monqade-shared
 
 [appveyor-image]: https://img.shields.io/appveyor/ci/terary/monqade-shared/master.svg?label=windows
-[appveyor-url]: https://ci.appveyor.com/project/terary/monqade-shared/branch/master)
+[appveyor-url]: https://ci.appveyor.com/project/terary/monqade-shared/branch/master
 
 [coveralls-image]: https://coveralls.io/repos/github/terary/monqade-shared/badge.svg?branch=master
-[coveralls-url]: https://coveralls.io/github/terary/monqade-shared?branch=master)
+[coveralls-url]: https://coveralls.io/github/terary/monqade-shared?branch=master
 
 [mitlicense-url]: http://opensource.org/licenses/MIT
 [mitlicense-image]: http://img.shields.io/badge/license-MIT-brightgreen.svg

@@ -49,6 +49,14 @@ const _keysDeepRecursive = (obj,keys) => {
     }
     if(typeof obj === 'object'){
         Object.entries(obj).forEach(([key,val]) => {
+
+            if(val === undefined || val === null){
+                return; //skip
+            }
+            // I am not sure this skip bit does the trick? 
+            // need to skip (or remove) keys that have value you - undefined or null
+            // I put this is monqade-schema copy seems to do the trick - need to update npm and github
+    
             keys.push(key)
             if(typeof val === 'object'){
                 _keysDeepRecursive(val,keys);
