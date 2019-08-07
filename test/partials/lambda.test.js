@@ -109,8 +109,12 @@ describe('.keysDeep(object)', () => {
                 k3k1: {
                     k3k1k1:'value'
                 },
+                
                 k3k2:'value',
-                k3k3: () => {}
+                k3k3: () => {},
+                k3k4UndefinedValue:undefined,
+                k3k5FalseValue: false,
+                k3k6NulValue: null
             }
            }
     
@@ -122,6 +126,10 @@ describe('.keysDeep(object)', () => {
     it('Should return an array of known keys ', () => {
         const keys= LAMBDAS.keysDeep(obj);
         const expectedKeys = ['key1','key2','key3','k2k1','k2k2','k3k1','k3k1k1','k3k2','k3k3'];
+        expectedKeys.push('k3k4UndefinedValue');
+        expectedKeys.push('k3k5FalseValue');
+        expectedKeys.push('k3k6NulValue');
+        //k3k4UndefinedValue, k3k5FalseValue, k3k6NulValue
 
         expect(keys.length).to.be.greaterThan(0);  // make sure we're testing something
         expect(expectedKeys.sort().join(',')).to.equal(keys.sort().join(','));
@@ -132,6 +140,10 @@ describe('.keysDeep(object)', () => {
         obj['key3']['k2k1'] ='value';
         const keys= LAMBDAS.keysDeep(obj);
         const expectedKeys = ['key1','key2','key3','k2k1','k2k2','k3k1','k3k1k1','k3k2','k3k3'];
+        expectedKeys.push('k3k4UndefinedValue');
+        expectedKeys.push('k3k5FalseValue');
+        expectedKeys.push('k3k6NulValue');
+        //k3k4UndefinedValue, k3k5FalseValue, k3k6NulValue
         expectedKeys.push('k2k1');
 
         expect(keys.length).to.be.greaterThan(0);  // make sure we're testing something
@@ -167,7 +179,22 @@ describe('.keysDeep(object)', () => {
         expect(expectedKeys.length).to.equal(keys.length);
 
     });
-   
+    
+    it('Should key if value is undefined/false/null ', () => {
+        // k3k4UndefinedValue:undefined,
+        // k3k5FalseValue: false,
+        // k3k6NulValue: null
+        const keys= LAMBDAS.keysDeep(obj);
+
+        
+
+        expect(keys.indexOf('k3k4UndefinedValue'), 'k3k4UndefinedValue').to.greaterThan(-1);
+        expect(keys.indexOf('k3k5FalseValue'), 'k3k5FalseValue').to.greaterThan(-1);
+        expect(keys.indexOf('k3k6NulValue'), 'k3k6NulValue').to.greaterThan(-1);
+
+    });
+
+
 })
 
 describe('objectIsSubset',function(){

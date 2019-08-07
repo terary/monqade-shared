@@ -40,6 +40,7 @@ const isHex=(s)=>{
 // };
 
 const _keysDeepRecursive = (obj,keys) => {
+
     if(Array.isArray(obj)){
         obj.forEach(el=>{
             _keysDeepRecursive(el,keys);
@@ -50,10 +51,11 @@ const _keysDeepRecursive = (obj,keys) => {
     if(typeof obj === 'object'){
         Object.entries(obj).forEach(([key,val]) => {
 
-            if(val === undefined || val === null){
+            if(val === undefined || val === null || val === null){
+                keys.push(key)
                 return; //skip
             }
-            // I am not sure this skip bit does the trick? 
+                    // I am not sure this skip bit does the trick? 
             // need to skip (or remove) keys that have value you - undefined or null
             // I put this is monqade-schema copy seems to do the trick - need to update npm and github
     
