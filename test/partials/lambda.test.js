@@ -3,6 +3,8 @@ const chai = require("chai");
 expect = chai.expect;
 const thisPackage = require("../../");
 const LAMBDAS = thisPackage.LAMBDAS;
+const MonqadeError = require('../../src/classes/MonqadeError');
+const MonqadeResponse = require('../../src/classes/MonqadeResponse');
 
 describe(`isHex()`, () => {
 
@@ -69,6 +71,7 @@ it('.subDocumentOfPaths',function (){
     }
     expect(LAMBDAS.subDocumentOfPaths(superDocument,['key1','key3']),' simple').to.deep.equal({key1:'some key',key3:'three'})
     expect(LAMBDAS.subDocumentOfPaths(superDocument,['key2','key4']),' not so simple').to.deep.equal({key2:subDocument,key4:['a','b','c']});
+    expect(LAMBDAS.subDocumentOfPaths(undefined,['key2','key4']),' not so simple').to.deep.equal({});
 })
 
 it.skip('.rejectedPromise  - deprecated.  Shouldn\'t be in use but in case it is left in the module',function (){ })
@@ -219,3 +222,61 @@ describe('objectIsSubset',function(){
 
 })
 
+describe('datasetCreator', ()=>{
+    it('should have member function build',()=>{
+        expect(LAMBDAS.datasetCreator.build).to.not.be.undefined;
+    })
+    describe('.build(<MonqadeSchema>,<count>) returns a promise', ()=> {
+        it('Should be a promise that resolves if all goes well',()=>{
+            const someFunction = ()=>{};
+            const pseudoMonqadeResponse = {_docs:[{}]}
+            const insertSuccess = ()=>{return Promise.resolve(pseudoMonqadeResponse)}; //
+            const pseudoSchema = {createTestDocumentForInsert: someFunction, doInsertOne: insertSuccess};
+            expect(LAMBDAS.datasetCreator.build(pseudoSchema,3)).to.be.a('Promise');
+        })
+    
+        it('Should resolve with an array of documents length specified - if all goes well',(done)=>{
+            const documentBuildCount =3;
+            const someFunction = ()=>{};
+            const pseudoMonqadeResponse = {_docs:[{}]}
+            const insertSuccess = ()=>{return Promise.resolve(pseudoMonqadeResponse)}; //
+            const pseudoSchema = {createTestDocumentForInsert: someFunction, doInsertOne: insertSuccess};
+            LAMBDAS.datasetCreator.build(pseudoSchema,documentBuildCount).then(docs=>{
+                expect(docs.length).to.equal(documentBuildCount);
+                done();
+            }).catch(e=>{
+                expect(e).to.be.null;                
+                done();
+            })
+            // expect(LAMBDAS.datasetCreator.build(pseudoSchema,3)).to.be.a('Promise');
+        })
+        it('Should reject with MonadeError, if MonqadeError is thrown',(done)=>{
+            const someFunction = ()=>{};
+            const insertFailed = ()=>{return Promise.reject(new MonqadeError('UNKNOWN_ERROR'))}; //
+            const pseudoSchema = {createTestDocumentForInsert: someFunction, doInsertOne: insertFailed};
+            LAMBDAS.datasetCreator.build(pseudoSchema,3).then(docs=>{
+                expect(docs).to.be.null;                
+                done();
+            }).catch(e=>{
+                expect(e).to.not.be.null;
+                expect(e.isMonqadeError).to.be.true;
+                done();
+            })
+          
+            // expect(LAMBDAS.datasetCreator.build(pseudoSchema,3)).to.be.a('Promise');
+        })
+        it('Should reject with non MonadeError, if other error',(done)=>{
+            LAMBDAS.datasetCreator.build(undefined,3).then(docs=>{
+                expect(docs).to.be.null;                
+                done();
+            }).catch(e=>{
+                expect(e).to.not.be.null;
+                expect(e.isMonqadeError).to.not.be.true;
+                done()
+            })
+          
+            // expect(LAMBDAS.datasetCreator.build(pseudoSchema,3)).to.be.a('Promise');
+        })
+    })
+
+})

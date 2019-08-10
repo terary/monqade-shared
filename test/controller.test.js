@@ -1,4 +1,10 @@
 
+// need to address:  https://github.com/terary/monqade-shared/issues/1
+// LAMBDAS.subDocumentOfPaths(undefined, ...);
+// need to set doc ={}
+// also maybe need to change name to rootDoc for clairty
+
+
 // const path = require('path');
 const fs = require('fs');
 const path = require('path');
@@ -31,7 +37,6 @@ describe("Monqade Schema Tests", function () {
     importTest("lambdas", './partials/lambda.test.js',   ! skipTest) ;
     importTest("MonqadeResponse", './partials/MonqadeResponse.test.js',   ! skipTest) ;
     importTest("MonqadeError", './partials/MonqadeError.test.js',   ! skipTest) ;
-    
     importTest("MonqadeResponseMany", './partials/MonqadeResponseMany.test.js',   ! skipTest) ;
 
     

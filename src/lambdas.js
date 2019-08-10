@@ -161,12 +161,12 @@ const lambdas={
      * .subDocumentOfPaths(superDocument,['key2','key4']) -> {key2:subDocument,key4:['a','b','c']}
      * .subDocumentOfPaths(superDocument,['subkey1']) -> {}
      * .subDocumentOfPaths(superDocument,['nonKey']) -> {}
-     * @param {JSON} doc - container document
+     * @param {JSON} rootDoc - container document
      * @param {string[]} pathIDs - pathIDs to extract from the JSON, 
      * @returns {JSON} document - that contains only the paths listed in 'pathIDs' and defined in the original JSON
      */
-    subDocumentOfPaths: (doc,pathIDs)=>{
-        const theNewDoc = pathIDs.reduce((o, pathID) => ({ ... o, [pathID]: doc[pathID]}), {}); //doc;
+    subDocumentOfPaths: (rootDoc ={},pathIDs)=>{
+        const theNewDoc = pathIDs.reduce((o, pathID) => ({ ... o, [pathID]: rootDoc[pathID]}), {}); //doc;
         Object.keys(theNewDoc).forEach((pathID)=>{
             if(theNewDoc[pathID]===undefined){ delete theNewDoc[pathID]}
         });
@@ -304,6 +304,46 @@ const lambdas={
         return typeof thingy === 'object' && thingy !== null && !Array.isArray(thingy);
     },
 
+    /**
+     * For test/dev - create a number of documents of MonqadeSchema type.
+     * documents are written to database. Array of those documents are returned.
+     * @memberof module:monqade-shared/lambdas
+     * @description create test documents
+     * 
+     * @example
+     * LAMBDAS.datasetCreator.build(mqSchema, count)
+     *  .then(docs => {
+     *      // docs array of documents
+     * }).catch(error => {
+     *      // oops something bad happened an maybe some documents are in database
+     *      // use only for testing development.
+     * })
+     * @param {MonqadeSchema} mqSchema - the schema to used ot create documents
+     * @param {number} count - number of documents to create 
+     * @returns {Promise}  - resolves with array of docs or has an error
+     */
+    datasetCreator: {
+        build: (mqSchema,count)=>{
+            const docs = [];
+
+            return new Promise((resolve,reject) => {
+                const docsAsPromised = [];    
+                for(let i=0; i<count; i++){
+                    docsAsPromised.push(mqSchema.doInsertOne(mqSchema.createTestDocumentForInsert()));
+                }
+        
+                Promise.all(docsAsPromised)
+                .then(x => {
+                    x.  forEach(r=>{
+                        docs.push(r._docs.pop());
+                    })
+                    return resolve(docs);
+                }).catch(e=>{
+                    return reject(e);
+                })
+            });
+        }
+    }
 
 
 };
